@@ -1,5 +1,5 @@
-Matija Pilepic
-Sveuciliste u Rijeci
+Matija Pilepic,
+Sveuciliste u Rijeci,
 Odijel za informatiku
 
 
