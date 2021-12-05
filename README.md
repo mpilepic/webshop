@@ -1,5 +1,5 @@
-# Matija Pilepić 
-# Sveuciliste u Rijeci
-# Odijel za informatiku
+Matija Pilepic
+Sveuciliste u Rijeci
+Odijel za informatiku
 
 
