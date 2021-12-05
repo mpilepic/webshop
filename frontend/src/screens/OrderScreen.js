@@ -135,7 +135,7 @@ function OrderScreen({ match, history }) {
                                                             </Col>
 
                                                             <Col md={4}>
-                                                                {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                                {item.qty} X {item.price} kn = {(item.qty * item.price).toFixed(2)} kn
                                                             </Col>
                                                         </Row>
                                                     </ListGroup.Item>
