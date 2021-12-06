@@ -10,7 +10,7 @@ function Product({ product }) {
                 <Card.Img  src={product.image} />
             </Link>
 
-            <Card.Body>
+            <Card.Body style={{ height: '5rem' }}>
                 <Link to={`/product/${product._id}`}>
                     <Card.Title as="div">
                         <strong>{product.name}</strong>
