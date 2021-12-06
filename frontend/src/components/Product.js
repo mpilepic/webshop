@@ -12,7 +12,7 @@ function Product({ product }) {
 
             <Card.Body>
                 <Link to={`/product/${product._id}`}>
-                    <Card.Title style={{ height: '5rem' }} as="div">
+                    <Card.Title style={{ height: '3rem' }} as="div">
                         <strong>{product.name}</strong>
                     </Card.Title>
                 </Link>
