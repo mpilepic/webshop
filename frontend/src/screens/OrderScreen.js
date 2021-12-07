@@ -192,7 +192,7 @@ function OrderScreen({ match, history }) {
                                     </ListGroup.Item>
 
 
-                                    {!order.isPaid && (
+                                    {!order.isPaid && Pouzece(order.paymentMethod) (
                                         <ListGroup.Item>
                                             {loadingPay && <Loader />}
 
