@@ -45,7 +45,7 @@ function PaymentScreen({ history }) {
                             type='radio'
                             label='Plaćanje pouzećem'
                             id='pouzece'
-                            name='paymentMethod'
+                            name='paymentMethod2'
                             onChange={(e) => setPaymentMethod('pouzece')}
                         >
 
