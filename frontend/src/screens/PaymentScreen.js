@@ -38,16 +38,15 @@ function PaymentScreen({ history }) {
                             id='paypal'
                             name='paymentMethod'
                             checked
-                            onChange={(e) => setPaymentMethod(e.target.value)}
+                            onChange={(e) => setPaymentMethod('PayPal')}
                         >
-
-                        </Form.Check>
+                        </Form.Check>,
                         <Form.Check
                             type='radio'
                             label='Plaćanje pouzećem'
                             id='pouzece'
                             name='paymentMethod'
-                            onChange={(e) => setPaymentMethod(e.target.value)}
+                            onChange={(e) => setPaymentMethod('pouzece')}
                         >
 
                         </Form.Check>
