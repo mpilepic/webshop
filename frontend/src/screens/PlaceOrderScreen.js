@@ -26,9 +26,9 @@ function PlaceOrderScreen({ history }) {
     if (!cart.paymentMethod) {
         history.push('/payment')
     }
-    const [paymentMethod, setPaymentMethod] = useState('PayPal')
+    const [payment, setpayment] = useState('PayPal')
     if (cart.paymentMethod == 'pouzece'){
-        setPaymentMethod('Plačanje pouzećem')
+        setpayment('Plačanje pouzećem')
     }
 
     useEffect(() => {
