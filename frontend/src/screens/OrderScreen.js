@@ -19,6 +19,9 @@ function OrderScreen({ match, history }) {
 
     const [sdkReady, setSdkReady] = useState(false)
 
+    const cart = useSelector(state => state.cart)
+    const { shippingAddress } = cart
+
     const orderDetails = useSelector(state => state.orderDetails)
     const { order, error, loading } = orderDetails
 
@@ -31,7 +34,7 @@ function OrderScreen({ match, history }) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    if (order.paymentMethod == 'pouzece'){
+    if (cart.paymentMethod == 'pouzece'){
         dispatch(payOrder(orderId, 'success'))
     }
 
@@ -114,12 +117,12 @@ function OrderScreen({ match, history }) {
                                     <h2>Plaćanje</h2>
                                     <p>
                                         <strong>Način plaćanja: </strong>
-                                        {order.paymentMethod}
+                                        {cart.paymentMethod}
                                     </p>
                                     {order.isPaid ? (
                                         <Message variant='success'>Plaćeno na dan: {order.paidAt}</Message>
                                     ) : (
-                                            Pouzece(order.paymentMethod)? (
+                                            Pouzece(cart.paymentMethod)? (
                                                 <Message variant='warning'>Nije plaćeno</Message>
                                             ) :
                                             <Message variant='success'>Plaćanje pouzećem.</Message>
