@@ -31,6 +31,9 @@ function OrderScreen({ match, history }) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
+    if (order.paymentMethod == 'pouzece'){
+        dispatch(payOrder(orderId, 'success'))
+    }
 
     if (!loading && !error) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
@@ -192,13 +195,13 @@ function OrderScreen({ match, history }) {
                                     </ListGroup.Item>
 
 
-                                    {!order.isPaid && Pouzece(order.paymentMethod) (
+                                    {!order.isPaid && (
                                         <ListGroup.Item>
                                             {loadingPay && <Loader />}
 
                                             {!sdkReady ? (
                                                 <Loader />
-                                            ) : (
+                                            ) : ( 
                                                     <PayPalButton
                                                         amount={order.totalPrice}
                                                         onSuccess={successPaymentHandler}

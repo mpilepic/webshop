@@ -26,6 +26,10 @@ function PlaceOrderScreen({ history }) {
     if (!cart.paymentMethod) {
         history.push('/payment')
     }
+    const payment = 'PayPal'
+    if (cart.paymentMethod == 'pouzece'){
+        payment = 'Plačanje pouzećem'
+    }
 
     useEffect(() => {
         if (success) {
@@ -69,7 +73,7 @@ function PlaceOrderScreen({ history }) {
                             <h2>Način plaćanja</h2>
                             <p>
                                 <strong></strong>
-                                {cart.paymentMethod}
+                                {payment}
                             </p>
                         </ListGroup.Item>
 
