@@ -47,8 +47,7 @@ function PaymentScreen({ history }) {
                             label='Plaćanje pouzećem'
                             id='pouzece'
                             name='paymentMethod'
-                            checked
-                            onChange={(e) => setPaymentMethod('pouzece')}
+                            onChange={(e) => setPaymentMethod('e.target.value')}
                         >
 
                         </Form.Check>
