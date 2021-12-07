@@ -8,6 +8,10 @@ import Loader from '../components/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constants/orderConstants'
 
+function Pouzece(nacin) {
+    if (nacin == 'PayPal'){return true}
+  }
+
 function OrderScreen({ match, history }) {
     const orderId = match.params.id
     const dispatch = useDispatch()
@@ -112,7 +116,11 @@ function OrderScreen({ match, history }) {
                                     {order.isPaid ? (
                                         <Message variant='success'>Plaćeno na dan: {order.paidAt}</Message>
                                     ) : (
-                                            <Message variant='warning'>Nije plaćeno</Message>
+                                            Pouzece(order.paymentMethod)? (
+                                                <Message variant='warning'>Nije plaćeno</Message>
+                                            ) :
+                                            <Message variant='success'>Plaćanje pouzećem.</Message>
+                                            
                                         )}
 
                                 </ListGroup.Item>

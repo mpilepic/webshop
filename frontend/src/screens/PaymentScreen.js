@@ -42,6 +42,16 @@ function PaymentScreen({ history }) {
                         >
 
                         </Form.Check>
+                        <Form.Check
+                            type='radio'
+                            label='Plaćanje pouzećem'
+                            id='pouzece'
+                            name='paymentMethod'
+                            checked
+                            onChange={(e) => setPaymentMethod(e.target.value)}
+                        >
+
+                        </Form.Check>
                     </Col>
                 </Form.Group>
 
