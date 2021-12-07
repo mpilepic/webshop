@@ -34,9 +34,6 @@ function OrderScreen({ match, history }) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    if (cart.paymentMethod == 'pouzece'){
-        dispatch(payOrder(orderId, 'success'))
-    }
 
     if (!loading && !error) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
