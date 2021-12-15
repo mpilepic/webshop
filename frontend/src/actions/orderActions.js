@@ -74,6 +74,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
                 ? error.response.data.detail
                 : error.message,
         })
+        
     }
 }
 
