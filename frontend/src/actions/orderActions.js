@@ -32,40 +32,49 @@ import { CART_CLEAR_ITEMS } from '../constants/cartConstants'
 
 
 export const createOrder = (order) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: ORDER_CREATE_REQUEST
+        })
 
-    dispatch({
-        type: ORDER_CREATE_REQUEST
-    })
+        const {
+            userLogin: { userInfo },
+        } = getState()
 
-    const {
-        userLogin: { userInfo },
-    } = getState()
-
-    const config = {
-        headers: {
-            'Content-type': 'application/json',
-            Authorization: `Bearer ${userInfo.token}`
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`
+            }
         }
+        console.log('Axios before')
+        const { data } = await axios.post(
+            `/api/orders/add/`,
+            order,
+            config
+        )
+        console.log('Create Succes before')
+        dispatch({
+            type: ORDER_CREATE_SUCCESS,
+            payload: data
+        })
+        console.log('Clear Cart before')
+        dispatch({
+            type: CART_CLEAR_ITEMS,
+            payload: data
+        })
+
+        localStorage.removeItem('cartItems')
+
+
+    } catch (error) {
+        dispatch({
+            type: ORDER_CREATE_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
     }
-
-    const { data } = await axios.post(
-        `/api/orders/add/`,
-        order,
-        config
-    )
-
-    dispatch({
-        type: ORDER_CREATE_SUCCESS,
-        payload: data
-    })
-
-    dispatch({
-        type: CART_CLEAR_ITEMS,
-        payload: data
-    })
-
-    localStorage.removeItem('cartItems')
-
 }
 
 
