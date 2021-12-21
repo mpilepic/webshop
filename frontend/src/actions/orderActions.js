@@ -43,12 +43,12 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
         const config = {
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
         console.log('Axios before')
-        const  data  = await axios.post(
+        const { data } = axios.post(
             `/api/orders/add/`,
             order,
             config
