@@ -48,9 +48,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
             }
         }
         console.log('Axios before')
-        const { data } = axios.post(
+        const { data } = await axios.post(
             `/api/orders/add/`,
-            order,
+            {order},
             config
         )
         console.log(data.response.data);
