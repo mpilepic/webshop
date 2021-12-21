@@ -67,12 +67,14 @@ function ShippingScreen({ history }) {
 
                 <Form.Group controlId='country'>
                     <Form.Label>Država</Form.Label>
-                    <select class="form-control" value={country ? country : ''} onChange={(e) => setCountry(e.target.value)}>
-                        <option value="Hrvatska">Hrvatska</option>
-                        <option value="Slovenija">Slovenija</option>
-                        <option value="Bosna i Hercegovina">Bosna i Hercegovina</option>
-                        <option value="Italija">Italija</option>
-                    </select>
+                    <Form.Control
+                        required
+                        type='text'
+                        placeholder='Država...'
+                        value={country ? country : ''}
+                        onChange={(e) => setCountry(e.target.value)}
+                    >
+                    </Form.Control>
                 </Form.Group>
 
                 <Button type='submit' variant='primary'>

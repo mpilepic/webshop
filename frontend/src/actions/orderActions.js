@@ -43,23 +43,22 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`
             }
         }
-        console.log('Axios before')
+
         const { data } = await axios.post(
-            `./api/orders/add/`,
-            {order},
+            `/api/orders/add/`,
+            order,
             config
         )
-        console.log(data.response.data);
-        console.log('Create Succes before')
+
         dispatch({
             type: ORDER_CREATE_SUCCESS,
             payload: data
         })
-        console.log('Clear Cart before')
+
         dispatch({
             type: CART_CLEAR_ITEMS,
             payload: data
@@ -69,8 +68,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
 
     } catch (error) {
-        console.error(error.response.data)
-        console.log(error.response.data)
         dispatch({
             type: ORDER_CREATE_FAIL,
             payload: error.response && error.response.data.detail
