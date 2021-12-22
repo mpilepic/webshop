@@ -25,7 +25,7 @@ function HomeScreen({ history }) {
         <div>
             {!keyword && <ProductCarousel />}
 
-            <h1>Najnoviji proizvodi</h1>
+            <h1>Svi proizvodi</h1>
             {loading ? <Loader />
                 : error ? <Message variant='danger'>{error}</Message>
                     :
